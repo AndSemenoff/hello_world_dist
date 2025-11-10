@@ -2,6 +2,6 @@
 # Говорим release-plz создавать GitHub Release, когда он создает тег
 github_release_create = true
 
-release_commits = "^feat:" # prepare release only if at least one commit matches a regex
+# release_commits = "^feat:" # prepare release only if at least one commit matches a regex
 # Мы не публикуем на crates.io в этом примере
 publish = false
