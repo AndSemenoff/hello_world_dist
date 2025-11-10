@@ -21,7 +21,9 @@ targets = ["x86_64-pc-windows-msvc"]
 # Включаем генерацию установщиков.
 # 'powershell' - это скрипт, который обеспечивает автообновление.
 # 'msi' - стандартный установщик Windows.
-installers = ["powershell", "msi"]
+installers = ["msi"]
+
+install-updater = true
 
 [package.metadata.wix]
 upgrade-guid = "23DF080C-EB3D-435E-A2EC-62F814FABB98"
