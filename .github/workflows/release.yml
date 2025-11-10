@@ -1,9 +1,12 @@
 name: Build Release Assets (cargo-dist)
 
 on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+*" # Триггер на любой тег версии vX.Y.Z
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Имя тега для релиза (например, v0.0.5)'
+        required: true
+        type: string
 
 jobs:
   build-release:
