@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hello, world! This app will auto-update!");
+    println!("Hello, world! This is version 0.1.0!");
 }
