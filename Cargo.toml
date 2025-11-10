@@ -1,6 +1,6 @@
 [package]
 name = "hello_world_dist"
-version = "0.2.0" 
+version = "0.3.0" 
 edition = "2024"
 repository = "https://github.com/AndSemenoff/hello_world_dist/"
 authors = ['Andrey Semenov']
@@ -17,7 +17,7 @@ lto = "thin"
 # Сообщаем cargo-dist, что мы используем CI GitHub
 ci = ["github"]
 # Собираем ТОЛЬКО под 64-bit Windows (MSVC)
-targets = ["x86_64-pc-windows-msvc"]
+targets = ["x86_64-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-pc-windows-msvc", "aarch64-apple-darwin"]
 # Включаем генерацию установщиков.
 # 'powershell' - это скрипт, который обеспечивает автообновление.
 # 'msi' - стандартный установщик Windows.
