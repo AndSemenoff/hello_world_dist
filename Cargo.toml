@@ -1,7 +1,7 @@
 [package]
 name = "hello_world_dist"
-version = "0.1.0" # release-plz будет обновлять эту версию
-edition = "2021"
+version = "0.2.0" 
+edition = "2024"
 repository = "https://github.com/AndSemenoff/hello_world_dist/"
 authors = ['Andrey Semenov']
 
