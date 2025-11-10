@@ -1,0 +1,5 @@
+[workspace]
+# Говорим release-plz создавать GitHub Release, когда он создает тег
+github_release_create = true
+# Мы не публикуем на crates.io в этом примере
+publish = false
