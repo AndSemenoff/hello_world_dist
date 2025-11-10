@@ -1,0 +1,27 @@
+name: Release-PR
+
+on:
+  push:
+    branches:
+      - main # Или ваша основная ветка
+
+jobs:
+  release-plz:
+    name: release-plz
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Нужен полный fetch-depth, чтобы release-plz мог читать историю коммитов
+          fetch-depth: 0
+          # Токен нужен для пуша коммитов (обновление Cargo.toml) и создания тегов
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run release-plz
+        uses: MarcoIeni/release-plz-action@v0.5
+        env:
+          # Токен для создания PR, тегов и GitHub релиза
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Указываем путь к нашему конфигу
+          CONFIG_PATH: .github/release-plz.toml

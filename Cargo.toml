@@ -1,0 +1,17 @@
+[package]
+name = "hello_world_dist"
+version = "0.1.0" # release-plz будет обновлять эту версию
+edition = "2024"
+
+[dependencies]
+
+# --- Конфигурация cargo-dist ---
+[package.metadata.dist]
+# Сообщаем cargo-dist, что мы используем CI GitHub
+ci = ["github"]
+# Собираем ТОЛЬКО под 64-bit Windows (MSVC)
+targets = ["x86_64-pc-windows-msvc"]
+# Включаем генерацию установщиков.
+# 'powershell' - это скрипт, который обеспечивает автообновление.
+# 'msi' - стандартный установщик Windows.
+installers = ["powershell", "msi"]
