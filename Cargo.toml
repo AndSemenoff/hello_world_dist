@@ -2,8 +2,15 @@
 name = "hello_world_dist"
 version = "0.1.0" # release-plz будет обновлять эту версию
 edition = "2021"
+repository = "https://github.com/AndSemenoff/hello_world_dist"
+authors = ['Andrey Semenov']
 
 [dependencies]
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
 
 # --- Конфигурация cargo-dist ---
 [package.metadata.dist]
@@ -15,3 +22,9 @@ targets = ["x86_64-pc-windows-msvc"]
 # 'powershell' - это скрипт, который обеспечивает автообновление.
 # 'msi' - стандартный установщик Windows.
 installers = ["powershell", "msi"]
+
+[package.metadata.wix]
+upgrade-guid = "DB920E98-AA06-4F7D-8FAF-8ADC80083C28"
+path-guid = "8BDECC96-53E0-4FDF-BFE9-79029ECEED49"
+license = false
+eula = false
