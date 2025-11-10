@@ -7,9 +7,6 @@ on:
         description: 'Имя тега для релиза (например, v0.0.5)'
         required: true
         type: string
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+*" # Триггер на любой тег версии vX.Y.Z
 
 jobs:
   build-release:
