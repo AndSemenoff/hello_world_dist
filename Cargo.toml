@@ -1,6 +1,6 @@
 [package]
 name = "hello_world_dist"
-version = "0.5.0" 
+version = "0.6.0" 
 edition = "2024"
 license = "MIT OR Apache-2.0"
 
@@ -22,6 +22,7 @@ github-attestations = true
 
 # --- Конфигурация cargo-dist ---
 [package.metadata.dist]
+assets = ["favicon.ico", "README.md"]
 # Сообщаем cargo-dist, что мы используем CI GitHub
 ci = ["github"]
 # Собираем ТОЛЬКО под 64-bit Windows (MSVC)
