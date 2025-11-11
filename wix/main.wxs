@@ -69,6 +69,7 @@
 
         <Package Id='*'
             Keywords='Installer'
+            Description='A cool application that solves all your problems!'
             Manufacturer='Andrey Semenov'
             InstallerVersion='450'
             Languages='1033'
@@ -87,27 +88,20 @@
         <Directory Id='TARGETDIR' Name='SourceDir'>
             <Directory Id='$(var.PlatformProgramFilesFolder)' Name='PFiles'>
                 <Directory Id='APPLICATIONFOLDER' Name='hello_world_dist'>
-                    
                     <!--
-                      Enabling the license sidecar file in the installer is a four step process:
+                      Disabling the license sidecar file in the installer is a two step process:
 
-                      1. Uncomment the `Component` tag and its contents.
-                      2. Change the value for the `Source` attribute in the `File` tag to a path
-                         to the file that should be included as the license sidecar file. The path
-                         can, and probably should be, relative to this file.
-                      3. Change the value for the `Name` attribute in the `File` tag to the
-                         desired name for the file when it is installed alongside the `bin` folder
-                         in the installation directory. This can be omitted if the desired name is
-                         the same as the file name.
-                      4. Uncomment the `ComponentRef` tag with the Id attribute value of "License"
-                         further down in this file.
+                      1. Comment out or remove the `Component` tag along with its contents.
+                      2. Comment out or remove the `ComponentRef` tag with the "License" Id
+                         attribute value further down in this file.
                     -->
-                    <!--
                     <Component Id='License' Guid='*'>
-                        <File Id='LicenseFile' Name='ChangeMe' DiskId='1' Source='C:\Path\To\File' KeyPath='yes'/>
+                        <File Id='LicenseFile'
+                            DiskId='1'
+                            Source='LICENSE-MIT'
+                            KeyPath='yes'/>
                     </Component>
-                    -->
-
+                    
                     <Directory Id='Bin' Name='bin'>
                         <Component Id='Path' Guid='51AE3D4B-61E7-44C0-A6BC-21558F33BE4F' KeyPath='yes'>
                             <Environment
@@ -141,13 +135,12 @@
             AllowAdvertise='no'
             Display='expand'
             Absent='disallow'>
-            
             <!--
-              Uncomment the following `ComponentRef` tag to add the license
-              sidecar file to the installer.
+              Comment out or remove the following `ComponentRef` tag to remove
+              the license sidecar file from the installer.
             -->
-            <!--<ComponentRef Id='License'/>-->
-
+            <ComponentRef Id='License'/>
+            
             <ComponentRef Id='binary0'/>
 
             <Feature
@@ -162,16 +155,14 @@
 
         <SetProperty Id='ARPINSTALLLOCATION' Value='[APPLICATIONFOLDER]' After='CostFinalize'/>
 
-        
         <!--
-          Uncomment the following `Icon` and `Property` tags to change the product icon.
-
-          The product icon is the graphic that appears in the Add/Remove
-          Programs control panel for the application.
+          Disabling the custom product icon for the application in the
+          Add/Remove Programs control panel requires commenting out or
+          removing the following `Icon` and `Property` tags.
         -->
-        <!--<Icon Id='ProductICO' SourceFile='wix\Product.ico'/>-->
-        <!--<Property Id='ARPPRODUCTICON' Value='ProductICO' />-->
-
+        <Icon Id='ProductICO' SourceFile='favicon.ico'/>
+        <Property Id='ARPPRODUCTICON' Value='ProductICO' />
+        
         <Property Id='ARPHELPLINK' Value='https://github.com/AndSemenoff/hello_world_dist/'/>
         
         <UI>

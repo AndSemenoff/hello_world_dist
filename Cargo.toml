@@ -3,8 +3,13 @@ name = "hello_world_dist"
 version = "0.3.0" 
 edition = "2024"
 license = "MIT OR Apache-2.0"
+
 repository = "https://github.com/AndSemenoff/hello_world_dist/"
 authors = ['Andrey Semenov']
+homepage = "https://github.com/AndSemenoff/hello_world_dist/"
+readme = "README.md"
+description = "A cool application that solves all your problems!"
+license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
 
 [dependencies]
 
@@ -12,6 +17,8 @@ authors = ['Andrey Semenov']
 [profile.dist]
 inherits = "release"
 lto = "thin"
+
+github-attestations = true
 
 # --- Конфигурация cargo-dist ---
 [package.metadata.dist]
@@ -29,5 +36,6 @@ install-updater = true
 [package.metadata.wix]
 upgrade-guid = "23DF080C-EB3D-435E-A2EC-62F814FABB98"
 path-guid = "51AE3D4B-61E7-44C0-A6BC-21558F33BE4F"
-license = false
+license = "LICENSE-MIT"
+product-icon = "favicon.ico"
 eula = false
