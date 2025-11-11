@@ -1,6 +1,6 @@
 [package]
 name = "hello_world_dist"
-version = "0.4.0" 
+version = "0.5.0" 
 edition = "2024"
 license = "MIT OR Apache-2.0"
 
@@ -32,6 +32,11 @@ targets = ["x86_64-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-pc-windows
 installers = ["msi"]
 
 install-updater = true
+
+include = [
+   "favicon.ico",
+   "README.md",
+]
 
 [package.metadata.wix]
 upgrade-guid = "23DF080C-EB3D-435E-A2EC-62F814FABB98"
