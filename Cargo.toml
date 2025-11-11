@@ -1,6 +1,6 @@
 [package]
 name = "hello_world_dist"
-version = "0.6.0" 
+version = "0.7.0" 
 edition = "2024"
 license = "MIT OR Apache-2.0"
 
@@ -9,7 +9,7 @@ authors = ['Andrey Semenov']
 homepage = "https://github.com/AndSemenoff/hello_world_dist/"
 readme = "README.md"
 description = "A cool application that solves all your problems!"
-license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
+#license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
 
 [dependencies]
 
@@ -33,15 +33,17 @@ targets = ["x86_64-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-pc-windows
 installers = ["msi"]
 
 install-updater = true
-
+auto-includes = true
 include = [
    "favicon.ico",
    "README.md",
 ]
 
+# https://volks73.github.io/cargo-wix/cargo_wix/
 [package.metadata.wix]
 upgrade-guid = "23DF080C-EB3D-435E-A2EC-62F814FABB98"
 path-guid = "51AE3D4B-61E7-44C0-A6BC-21558F33BE4F"
 license = "LICENSE-MIT"
 product-icon = "favicon.ico"
+include = ["README.md", "favicon.ico"]
 eula = false
